@@ -55,11 +55,14 @@ export function Expense() {
 
   const calculateTotalByType = (expenses: ExpenseType[], type: number) => {
     const filteredExpenses = expenses.filter((expense) => expense.tipo === type);
+
     const total = filteredExpenses.reduce((acc, expense) => {
-      return acc + expense.valor;
+      return acc + (expense.valor || 0);
     }, 0);
+
     return parseFloat(total.toFixed(2));
   };
+
 
   const totalByType: number[] = [];
   for (let i = 0; i < 7; i++) {
@@ -84,12 +87,13 @@ export function Expense() {
       <ul>
         {typeLabels.map((label, index) => (
           <li key={index}>
-            {label}: R$ {totalByType[index]?.toFixed(2) || "0.00"}
+            {label}: R$ {totalByType[index]?.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) || "0,0"}
           </li>
         ))}
+
       </ul>
 
-      <p>Total Geral: R$ {totalGeral.toFixed(2)}</p>
+      <p>Total Geral: R$ {totalGeral.toFixed(1)}</p>
     </>
   );
 }
