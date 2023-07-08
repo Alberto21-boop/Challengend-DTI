@@ -1,0 +1,17 @@
+.homeBackground {
+  background: var(--gray-700);
+}
+
+.names {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.names li {
+  margin-top: 10px;
+}
+
+.names li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}

@@ -1,6 +1,8 @@
 import { Header } from "../../Header";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import styles from "./Home.module.css"
+
 
 type RepositoryPolitician = {
   id: number;
@@ -19,9 +21,9 @@ export function Home() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.homeBackground} >
       <Header />
-      <ul>
+      <ul className={styles.names}>
         {repositoryPolitician.map((repo) => {
           return (
             <li key={repo.id}>
