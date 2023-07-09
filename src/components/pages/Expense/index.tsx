@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { Header } from "../../Header";
 import styles from './Expense.module.css'
 import { Loading } from "../../Loading";
-/* import { Money } from "../../LottieAnimation/Money"; */
+import politicTwo from '../../../assets/Political Candidate-pana.svg'
+import { useNavigate } from 'react-router-dom';
 
 type ExpenseType = {
   tipo: number;
@@ -38,7 +39,14 @@ export function Expense() {
   const [repositorySenatorsExpenses, setRepositorySenatorsExpenses] = useState<RepositorySenatorsExpenses>([]);
   const [repositoryPolitician, setRepositoryPolitician] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const navigate = useNavigate();
 
+
+  const handleGoBack = () => {
+    setIsLoading(true);
+    navigate(-1);
+    setIsLoading(false);
+  };
 
   useEffect(() => {
     setIsLoading(true)
@@ -95,34 +103,35 @@ export function Expense() {
     <>
       <Header />
       <div className={styles.expenseSenator}>
-        <h1 className={styles.senatorTitle}>Despesas do Senador :  {repositoryPolitician}</h1>
-        {politicianExpenses && (
-          <ul className={styles.expenseStyle}>
-            {typeLabels.map((label, index) => (
-              <li key={index}>
-                {label}: {totalByType[index]?.toLocaleString("pt-BR", { style: "currency", currency: "BRL", minimumFractionDigits: 2, maximumFractionDigits: 2 }) || "R$0,00"}
-              </li>
-            ))}
-          </ul>
-        )}
+        <div className={styles.container}>
+          <img className={styles.politicTwo} src={politicTwo} alt="" />
+          <div className={styles.cardBig}>
+            <h1 className={styles.senatorTitle}>Despesas do Senador: {repositoryPolitician}</h1>
+            <ul className={styles.expenseStyle}>
+              {typeLabels.map((label, index) => (
+                <li key={index}>
+                  {label}: {totalByType[index]?.toLocaleString("pt-BR", { style: "currency", currency: "BRL", minimumFractionDigits: 2, maximumFractionDigits: 2 }) || "R$0,00"}
+                </li>
+              ))}
+            </ul>
+            <p className={styles.total}>Total Geral: {totalGeral.toLocaleString("pt-BR", { style: "currency", currency: "BRL", minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+          </div>
+        </div>
 
-
-
-        <p className={styles.total}>Total Geral: {totalGeral.toLocaleString("pt-BR", { style: "currency", currency: "BRL", minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
-
-        <Link to="/" >
-          <button>Voltar para Pagina Anterior</button>
+        <Link to="/">
+          <button onClick={handleGoBack}>Voltar para Página Anterior</button>
         </Link>
-
 
         <h2 className={styles.secondTitle}>Discriminação das despesas</h2>
         <ul>
           {repositorySenatorsExpenses.map((senator) =>
             senator.despesas.map((expense, index) => (
               <li className={styles.detailedExpenseList} key={index}>
-                <strong >Fornecedor:</strong> {expense.fornec}<br />
-                <strong>Data:</strong> {expense.dia}/{expense.mes}/{expense.ano}<br />
-                <strong>Valor:</strong> {expense.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                <div className={styles.card}>
+                  <strong>Fornecedor:</strong> {expense.fornec}<br />
+                  <strong>Data:</strong> {expense.dia}/{expense.mes}/{expense.ano}<br />
+                  <strong>Valor:</strong> {expense.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                </div>
               </li>
             ))
           )}

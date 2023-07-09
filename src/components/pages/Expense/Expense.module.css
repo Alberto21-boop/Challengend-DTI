@@ -1,16 +1,52 @@
 .expenseSenator {
-  background: var(--background);
-  color: var(--fonts-color);
+  background: var(--white);
+  color: var(--color-font);
 }
 
 .senatorTitle {
   list-style: none;
   padding-bottom: 10px;
   margin-left: 17px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.politicTwo {
+  width: 500px;
+  height: 500px;
+
+  margin-left: 150px;
+}
+
+.cardBig {
+  background-color: #f2f2f2;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  width: 700px;
+  margin-left: 17px;
+}
+
+.card {
+  background-color: #f2f2f2;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  width: 700px;
+  margin-left: 17px;
 }
 
 button {
-  width: 220px;
+  width: 700px;
   height: 50px;
   margin-left: 17px;
   margin-top: 20px;
@@ -20,6 +56,8 @@ button {
   color: var(--background);
 
   cursor: pointer;
+
+  margin-bottom: 50px;
 }
 
 .button:hover {

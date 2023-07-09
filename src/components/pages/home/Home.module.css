@@ -1,29 +1,72 @@
 .homeBackground {
-  background: var(--background);
+  background: var(--white);
 }
 
-.names {
-  list-style: none;
-  margin-top: 10px;
-  margin-left: 17px;
+.names span {
+  font-size: 14px;
+}
+
+.subHeaderElements {
+  display: flex;
+  margin-right: 10px;
 }
 
 .homeTitle {
-  color: var(--fonts-color);
+  color: var(--fonts-title);
   margin-left: 17px;
-  margin-top: 10px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.politic {
+  width: 500px;
+  height: 500px;
+  margin-left: auto;
+  margin-right: 90px;
 }
 
 .names a {
   text-decoration: none;
-  color: #94a3b8;
+  color: var(--color-font);
+  font-size: 18px;
 }
 
 .names li {
-  margin-top: 10px;
+  display: flex;
+  margin-bottom: 10px;
+
+  width: 615px;
+}
+
+.names .card {
+  background-color: #f2f2f2;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+  width: 900px;
+  height: 60px;
+
+  margin-left: 10px;
+}
+
+.names .card .nameSenador {
+  text-decoration: none;
+  color: var(--font-a);
+  font-size: 18px;
 }
 
 .names li:last-child {
   margin-bottom: 0;
   padding-bottom: 20px;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+}
+
+.moneyIcon {
+  font-size: 24px;
 }
