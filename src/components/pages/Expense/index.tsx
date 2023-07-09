@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Header } from "../../Header";
+import styles from './Expense.module.css'
 
 type ExpenseType = {
   tipo: number;
@@ -85,33 +86,33 @@ export function Expense() {
     <>
       <Header />
 
-      <h1>Despesas do Senador {repositoryPolitician}</h1>
-
-      {politicianExpenses && (
-        <ul>
-          {typeLabels.map((label, index) => (
-            <li key={index}>
-              {label}: {totalByType[index]?.toLocaleString("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) || "R$0,00"}
-            </li>
-          ))}
-        </ul>
-      )}
-
-      <p>Total Geral: {totalGeral.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
-
-      <h2>Discriminação das despesas</h2>
-      <ul>
-        {repositorySenatorsExpenses.map((senator) =>
-          senator.despesas.map((expense, index) => (
-            <li key={index}>
-              <strong>Fornecedor:</strong> {expense.fornec}<br />
-              <strong>Data:</strong> {expense.dia}/{expense.mes}/{expense.ano}<br />
-              <strong>Valor:</strong> {expense.valor.toLocaleString('en-US', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-            </li>
-          ))
+      <div className={styles.expenseSenator}>
+        <h1 className={styles.senatorTitle}>Despesas do Senador {repositoryPolitician}</h1>
+        {politicianExpenses && (
+          <ul className={styles.expenseStyle}>
+            {typeLabels.map((label, index) => (
+              <li key={index}>
+                {label}: {totalByType[index]?.toLocaleString("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) || "R$0,00"}
+              </li>
+            ))}
+          </ul>
         )}
-      </ul>
 
+        <p>Total Geral: {totalGeral.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+
+        <h2>Discriminação das despesas</h2>
+        <ul>
+          {repositorySenatorsExpenses.map((senator) =>
+            senator.despesas.map((expense, index) => (
+              <li key={index}>
+                <strong>Fornecedor:</strong> {expense.fornec}<br />
+                <strong>Data:</strong> {expense.dia}/{expense.mes}/{expense.ano}<br />
+                <strong>Valor:</strong> {expense.valor.toLocaleString('en-US', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              </li>
+            ))
+          )}
+        </ul>
+      </div>
     </>
   );
 }

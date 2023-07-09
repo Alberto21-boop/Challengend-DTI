@@ -6,3 +6,12 @@ E para as rotas de uma pagina para outra funcionar instalamos o seguinte pacote
 
 npm install react-router-dom
 
+Para os icones animados estamos utilizando lottie files, e por isso foi instalado a biblioteca:
+
+npm install react-lottie
+Cas a instalação apresente dificuldades , tente o 
+
+npm install react-lottie --force
+
+npm install --save-dev @types/react-lottie
+ 

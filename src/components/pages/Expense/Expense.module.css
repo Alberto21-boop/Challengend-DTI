@@ -1,0 +1,17 @@
+.expenseSenator {
+  background: var(--background);
+  color: var(--fonts-color);
+}
+
+.senatorTitle {
+  list-style: none;
+}
+
+.expenseStyle li {
+  margin-top: 10px;
+}
+
+.expenseStyle li:last-child {
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}
