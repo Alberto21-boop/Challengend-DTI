@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Header } from "../../Header";
 import styles from './Expense.module.css'
+import { Loading } from "../../Loading";
 /* import { Money } from "../../LottieAnimation/Money"; */
 
 type ExpenseType = {
@@ -36,8 +37,11 @@ export function Expense() {
   const { id } = useParams<{ id: string | undefined }>();
   const [repositorySenatorsExpenses, setRepositorySenatorsExpenses] = useState<RepositorySenatorsExpenses>([]);
   const [repositoryPolitician, setRepositoryPolitician] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
 
   useEffect(() => {
+    setIsLoading(true)
     const fetchData = async () => {
       try {
         if (id) {
@@ -51,10 +55,13 @@ export function Expense() {
         }
       } catch (error) {
         console.error(error);
+      } finally {
+        setIsLoading(false)
       }
     };
 
     fetchData();
+
   }, [id]);
 
   const calculateTotalByType = (expenses: ExpenseType[], type: number) => {
@@ -64,7 +71,7 @@ export function Expense() {
       return acc + (expense.valor || 0);
     }, 0);
 
-    return parseFloat(total.toFixed(1));
+    return parseFloat(total.toFixed(2));
   };
 
   const politicianExpenses = repositorySenatorsExpenses.find((senator) => senator.id === parseInt(id || "", 10));
@@ -93,7 +100,7 @@ export function Expense() {
           <ul className={styles.expenseStyle}>
             {typeLabels.map((label, index) => (
               <li key={index}>
-                {label}: {totalByType[index]?.toLocaleString("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) || "R$0,00"}
+                {label}: {totalByType[index]?.toLocaleString("pt-BR", { style: "currency", currency: "BRL", minimumFractionDigits: 2, maximumFractionDigits: 2 }) || "R$0,00"}
               </li>
             ))}
           </ul>
@@ -101,7 +108,7 @@ export function Expense() {
 
 
 
-        <p className={styles.total}>Total Geral: {totalGeral.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+        <p className={styles.total}>Total Geral: {totalGeral.toLocaleString("pt-BR", { style: "currency", currency: "BRL", minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
 
         <Link to="/" >
           <button>Voltar para Pagina Anterior</button>
@@ -115,12 +122,13 @@ export function Expense() {
               <li className={styles.detailedExpenseList} key={index}>
                 <strong >Fornecedor:</strong> {expense.fornec}<br />
                 <strong>Data:</strong> {expense.dia}/{expense.mes}/{expense.ano}<br />
-                <strong>Valor:</strong> {expense.valor.toLocaleString('en-US', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                <strong>Valor:</strong> {expense.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </li>
             ))
           )}
         </ul>
       </div>
+      {isLoading && <Loading />}
     </>
   );
 }
