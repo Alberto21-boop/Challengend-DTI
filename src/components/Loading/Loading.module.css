@@ -1,7 +1,7 @@
 .shadow {
   position: fixed;
   inset: 0;
-  background-color: #00000190;
+  background-color: var(--loading);
   z-index: 30;
 
   display: flex;

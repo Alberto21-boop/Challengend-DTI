@@ -1,13 +1,15 @@
 :root {
   --white: #ffffff;
-  --gray-100: #f2f2f2;
+  --card-color: #f2f2f2;
   --fonts-color: #d9d9d9;
   --fonts-title: #111827;
-  --gray-400: #333333;
-  --gray-500: #262626;
-  --gray-600: #1a1a1a;
+
   --color-font: #0d0d0d;
   --font-a: #1f2937;
+
+  --shadow-card: #000;
+
+  --loading: #00000290;
 
   --purple: #8284fa;
   --purple-dark: #5e60ce;
