@@ -2,7 +2,7 @@ import { Header } from "../../Header";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Home.module.css"
-import { FaMoneyBillWave } from 'react-icons/fa';
+
 
 
 type RepositoryPolitician = {

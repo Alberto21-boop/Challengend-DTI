@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Header } from "../../Header";
 import styles from './Expense.module.css'
+/* import { Money } from "../../LottieAnimation/Money"; */
 
 type ExpenseType = {
   tipo: number;
@@ -85,9 +87,8 @@ export function Expense() {
   return (
     <>
       <Header />
-
       <div className={styles.expenseSenator}>
-        <h1 className={styles.senatorTitle}>Despesas do Senador {repositoryPolitician}</h1>
+        <h1 className={styles.senatorTitle}>Despesas do Senador :  {repositoryPolitician}</h1>
         {politicianExpenses && (
           <ul className={styles.expenseStyle}>
             {typeLabels.map((label, index) => (
@@ -98,14 +99,21 @@ export function Expense() {
           </ul>
         )}
 
-        <p>Total Geral: {totalGeral.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
 
-        <h2>Discriminação das despesas</h2>
+
+        <p className={styles.total}>Total Geral: {totalGeral.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+
+        <Link to="/" >
+          <button>Voltar para Pagina Anterior</button>
+        </Link>
+
+
+        <h2 className={styles.secondTitle}>Discriminação das despesas</h2>
         <ul>
           {repositorySenatorsExpenses.map((senator) =>
             senator.despesas.map((expense, index) => (
-              <li key={index}>
-                <strong>Fornecedor:</strong> {expense.fornec}<br />
+              <li className={styles.detailedExpenseList} key={index}>
+                <strong >Fornecedor:</strong> {expense.fornec}<br />
                 <strong>Data:</strong> {expense.dia}/{expense.mes}/{expense.ano}<br />
                 <strong>Valor:</strong> {expense.valor.toLocaleString('en-US', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </li>
