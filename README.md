@@ -35,6 +35,7 @@
 
 <h3 align="center">Imagem prévia da aplicação</h3>
 
+
 ![image](https://github.com/Alberto21-boop/Challengend-DTI-Front/assets/85910024/86aa4be9-cf73-4be6-8d14-e2066b5e17d8)
 
 ![image](https://github.com/Alberto21-boop/Challengend-DTI-Front/assets/85910024/983f1a57-0b96-410e-a30e-657f3fef86b5)
