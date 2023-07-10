@@ -35,7 +35,17 @@
 
 <h3 align="center">Imagem prévia da aplicação</h3>
 
-![cover](.github/project-preview.png?style=flat)
+![image](https://github.com/Alberto21-boop/Challengend-DTI-Front/assets/85910024/86aa4be9-cf73-4be6-8d14-e2066b5e17d8)
+
+![image](https://github.com/Alberto21-boop/Challengend-DTI-Front/assets/85910024/983f1a57-0b96-410e-a30e-657f3fef86b5)
+
+![image](https://github.com/Alberto21-boop/Challengend-DTI-Front/assets/85910024/8e1853e1-f956-47fe-9649-abe93f4c76df)
+
+Descendo 
+
+![image](https://github.com/Alberto21-boop/Challengend-DTI-Front/assets/85910024/3515f01c-896d-410d-9e10-f57df179e65e)
+
+
 
 <br>
 
@@ -77,19 +87,6 @@ $ npm install
 # Iniciar o projeto
 $ npm run dev
 
-Para a construção do projetyo em React, foi utilizado Vite, por isso foi instalado:
-
-npm create vite@latest
-
-E para as rotas de uma pagina para outra funcionar instalamos o seguinte pacote
-
-npm install react-router-dom
-
-E para o icone de dinheiro dos cards do home
-
-npm install @fortawesome/fontawesome-svg-core
-npm install @fortawesome/free-solid-svg-icons
-npm install @fortawesome/react-fontawesome
 
 ```
 
@@ -127,9 +124,20 @@ SOFTWARE.
 <h3>Instalação de dependências e outros comandos</h3>
 
 ```bash
-# Instalando a biblioteca para consumo de APIs
-➜ npm i axios
-```
+Para a construção do projetyo em React, foi utilizado Vite, por isso foi instalado:
+
+npm create vite@latest
+
+E para as rotas de uma pagina para outra funcionar instalamos o seguinte pacote
+
+npm install react-router-dom
+
+E para o icone de dinheiro dos cards do home
+
+npm install @fortawesome/fontawesome-svg-core
+npm install @fortawesome/free-solid-svg-icons
+npm install @fortawesome/react-fontawesome
+
 
 <br />
 
