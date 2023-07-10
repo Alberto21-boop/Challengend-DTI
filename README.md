@@ -76,6 +76,21 @@ $ npm install
 
 # Iniciar o projeto
 $ npm run dev
+
+Para a construção do projetyo em React, foi utilizado Vite, por isso foi instalado:
+
+npm create vite@latest
+
+E para as rotas de uma pagina para outra funcionar instalamos o seguinte pacote
+
+npm install react-router-dom
+
+E para o icone de dinheiro dos cards do home
+
+npm install @fortawesome/fontawesome-svg-core
+npm install @fortawesome/free-solid-svg-icons
+npm install @fortawesome/react-fontawesome
+
 ```
 
 - O app estará disponível no seu browser pelo endereço http://localhost:5173/
